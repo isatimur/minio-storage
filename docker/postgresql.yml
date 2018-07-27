@@ -1,0 +1,14 @@
+version: '2'
+services:
+    minio-postgresql:
+        image: postgres:10.4
+        ports:
+          - "5432:5432"
+        environment:
+          - POSTGRES_USER=daemon
+          - POSTGRES_PASSWORD=
+          - POSTGRES_DB=daemon
+        volumes:
+          - /var/lib/postgresql/data
+        expose:
+          - "5433"

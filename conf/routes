@@ -1,0 +1,9 @@
+GET         /                                                    controllers.MinioObjectController.index
+GET         /docs/                                               controllers.Assets.at(path="/public/swagger-ui",file="index.html")
+GET         /docs/swagger.json                                   controllers.ApiHelpController.getResources
+GET         /docs/*file                                          controllers.Assets.at(path="/public/swagger-ui",file)
+
+### Managing Object
+POST        /api/v2/bucket/:bucketName/object/create             controllers.MinioObjectController.newObject(bucketName: String)
+GET         /api/v1/bucket/:bucketName/object/:objectName        controllers.MinioObjectController.getObject(bucketName: String, objectName:String)
+GET         /api/v1/bucket/:bucketName/objects                   controllers.MinioObjectController.getObjects(bucketName: String)

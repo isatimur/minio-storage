@@ -1,0 +1,28 @@
+version: '2'
+services:
+    minio-storage:
+        image: minio-storage:1.1
+        links:
+          - minio-postgresql
+        environment:
+          # - _JAVA_OPTIONS=-Xmx512m -Xms256m
+          - DB_JDBC_URL=jdbc:postgresql://minio-postgresql:5432/daemon
+          - MINIO_URL=http://minio-docker:9000
+          - MINIO_SECRET_KEY=MRsBKl7LU2/+ZpWbck1kLaAUOuqAli6N2bMBDhRD
+          - MINIO_ACCESS_KEY=C2GFVOL6FZCW8ZTRYEC4
+          - POSTGRES_USER=daemon
+          - POSTGRES_PASSWORD=
+          - POSTGRES_DB=daemon
+          - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+          - 9001:9000
+        expose:
+          - 9001
+    minio-postgresql:
+        extends:
+            file: postgresql.yml
+            service: minio-postgresql
+    minio-docker:
+        extends:
+          file: minio.yml
+          service: minio-docker

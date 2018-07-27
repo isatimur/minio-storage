@@ -1,0 +1,11 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mappers.StorageMapper">
+    <!-- Тут должен быть апдейт sql -->
+    <update id="updateObject"></update>
+
+    <!-- Тут должен быть селект sql -->
+    <select id="selectObject" resultType="java.lang.Object"></select>
+
+
+</mapper>

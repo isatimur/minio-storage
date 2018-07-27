@@ -1,0 +1,13 @@
+version: '2'
+services:
+    minio-docker:
+        image: minio/minio:latest
+        command: server data
+        volumes:
+            - d:/work/data:/data
+            - d:/work/config:/root/.minio
+        environment:
+            - MINIO_ACCESS_KEY=C2GFVOL6FZCW8ZTRYEC4
+            - MINIO_SECRET_KEY=MRsBKl7LU2/+ZpWbck1kLaAUOuqAli6N2bMBDhRD
+        ports:
+            - 9000:9000

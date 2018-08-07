@@ -37,9 +37,9 @@ which will make your project-name:version image of docker
 Docker-Compose
 --------
 To load all service on docker:
- - postgres
- - minio
- - minio-storage
+ - postgres - relation DB
+ - minio - distributed storage
+ - minio-storage - it's a play framework application that provides swagger on HTTP API to communicate with minio distributed storage 
  
 you need to run following command:
 ```
